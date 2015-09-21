@@ -1,0 +1,61 @@
+<!--
+	作者：642189953@qq.com
+	时间：2015-09-17
+	描述：登陆页面
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+
+		<title>登录</title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.link-area{
+				text-align: center;
+			}
+			.mui-btn-block{
+				margin: 0 2% 0 2%;
+				width: 96%;
+				line-height: 0.6em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!--登录页-->
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-center mui-title">登录</h1>
+		</header>
+
+		<!--主体-->
+		<!--Logo和主题-->
+		<div class="mui-content">
+			<div class="mui-card">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>账号</label>
+						<input type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					</div>
+					<div class="mui-input-row">
+						<label>密码</label>
+						<input type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+					</div>
+				</form>
+			</div>
+			<div class="mui-content-padded">
+				<button class="mui-btn mui-btn-block mui-btn-primary">登录</button><br /><hr /><br />
+				<div class="link-area"><a href="children/signin.html">注册账号</a> <span class="spliter">|</span> <a href="children/forget.html">忘记密码</a>
+				</div>
+			</div>
+			<div class="mui-content-padded oauth-area"></div>
+			
+		</div>
+
+	</body>
+
+</html>

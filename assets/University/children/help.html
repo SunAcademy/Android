@@ -1,0 +1,44 @@
+<!--
+	作者：Xiaosong
+	时间：2015-09-15
+	描述：“扫一扫”帮助页面
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<title>帮助</title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="../maps.html"></a>
+			<h2 class="mui-center mui-title">帮助</h2>
+		</header>
+		<!--帮助内容-->
+		<div class="mui-content">
+			<div class="mui-content-padded">
+				<h4>地图</h4>
+				<p>本地图自动定位到云南呈贡大学城中心，已为您标记出所有大学城位置。点击标签可弹出该大学简介，如果想知道自己位置可点击下方“我的位置按钮”。本地图由百度地图提供。</p>
+			</div>
+			<div class="mui-content-padded">
+				<h4>我的位置</h4>
+				<p>点击“我的位置”，当您的设备弹出类似是否允许共享位置信息的提示后，选择“允许”就可以获取您的当前位置。</p>
+			</div>
+		</div>
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				swipeBack: true //启用右滑关闭功能
+			});
+		</script>
+	</body>
+
+</html>

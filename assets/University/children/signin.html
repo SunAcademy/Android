@@ -1,0 +1,75 @@
+<!--
+	作者：642189953@qq.com
+	时间：2015-09-17
+	描述：注册页面
+-->
+
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>注册</title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-btn-block{
+				margin: 0 2% 0 2%;
+				width: 96%;
+				line-height: 0.6em;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="../login.html"></a>
+			<h1 class="mui-center mui-title">注册</h1>
+		</header>
+
+		<div class="mui-content">
+			<div class="mui-card">
+				<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>账号</label>
+						<input id="account" type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+					</div>
+					<div class="mui-input-row">
+						<label>密码</label>
+						<input id='password' type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+					</div>
+					<div class="mui-input-row">
+						<label>确认</label>
+						<input id='password_confirm' type="password" class="mui-input-clear mui-input" placeholder="请确认密码">
+					</div>
+					<div class="mui-input-row">
+						<label>邮箱</label>
+						<input id='email' type="email" class="mui-input-clear mui-input" placeholder="请输入邮箱">
+					</div>
+				</form>
+			</div>
+			<div class="mui-content-padded">
+				<button type="submit" class="mui-btn mui-btn-block mui-btn-primary" onsubmit="check()">注册</button>
+			</div>
+		</div>
+	</body>
+    <script type="text/javascript">
+    	function check(){
+    		var account=document.getElementById('account').value;
+    		var pw1=document.getElementById('password').value;
+    		var pw2=document.getElementById('password_confirm').value;
+    		var email=document.getElementById('email').value;
+    		
+    		if (account=="" || pw1=="" || pw2=="" || email==""){
+    			alert("各项信息不能为空，请重新填写！")；
+    		}else if (account.length>10 || account.length<3){
+    			alert("用户名不能少于3个字符，不能多于6个字符。");
+    		}else if (pw1<6){
+    			alert("密码不能少于6个字符。");
+    		}else if (pw1!=pw2){
+    			alert("两次输入的密码不一致！");
+    		}
+    	}
+    </script>
+</html>

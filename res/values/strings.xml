@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">智游大学城</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="retBtn">&lt;</string>
+    <string name="phoneRegister">手机快速注册</string>
+    <string name="regHint">请输入手机号</string>
+    <string name="agreeReg">同意注册协议</string>
+    <string name="regNext">下一步</string>
+    <string name="_">智油大学城用户注册协议</string>
+    <string name="agreeTxt">同意</string>
+    <string name="haveSend">已经向XXX发送验证码</string>
+    <string name="xsecondeResend">xx秒后重新发送</string>
+    <string name="pleaseInputCode">请输入验证码</string>
+    <string name="mine">我的</string>
+    <string name="refacle">热点推荐</string>
+    <string name="loginorreg">登录|注册</string>
+
+</resources>

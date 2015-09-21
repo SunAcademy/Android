@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="33dp" >
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="54dp"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="3.62"
+            android:textSize="20sp"
+            android:text="@string/mine" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/login_background"
+        android:layout_height="120dp"
+        >
+
+                <TextView
+                    android:id="@+id/login_btn"
+                    android:layout_width="102dp"
+                    android:layout_height="94dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="3.62"
+                    android:background="@drawable/shape"
+                    android:gravity="center"
+                    android:text="@string/loginorreg" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/refacle" />
+
+ 
+  
+
+</LinearLayout>
