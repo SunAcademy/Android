@@ -6,22 +6,24 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="33dp" >
+        android:layout_weight="1"
+        android:layout_height="0dp" >
 
         <TextView
             android:id="@+id/title"
-            android:layout_width="54dp"
+            android:layout_width="match_parent"
             android:gravity="center"
             android:layout_height="match_parent"
-            android:layout_weight="3.62"
+            
             android:textSize="20sp"
             android:text="@string/mine" />
     </LinearLayout>
 
     <FrameLayout
+        android:layout_weight="6"
         android:layout_width="match_parent"
         android:background="@drawable/login_background"
-        android:layout_height="120dp"
+        android:layout_height="0dp"
         >
 
                 <TextView
@@ -38,9 +40,72 @@
 
     <TextView
         android:id="@+id/textView3"
+        android:layout_weight="3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/refacle" />
+    
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_weight="1"
+  
+		android:layout_marginTop="300dp"
+        android:background="#f7f7f7"
+        android:orientation="horizontal" >
+
+        <TextView
+            
+            android:gravity="center"
+            android:id="@+id/home"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#929292"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/purches"
+             android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#929292"
+            android:textSize="25sp" />
+
+        <TextView
+             android:gravity="center"
+            android:id="@+id/photo"
+            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#929292"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/guide"
+             android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#929292"
+            android:textSize="25sp" />
+
+        <TextView
+             android:gravity="center"
+            android:id="@+id/myself"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="TextView"
+            android:textColor="#929292"
+            android:textSize="25sp" />
+    </LinearLayout>
 
  
   
