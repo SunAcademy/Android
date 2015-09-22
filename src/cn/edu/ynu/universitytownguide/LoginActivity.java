@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 import us.wenqi.us.Util.DesUtils;
+import us.wenqi.us.Util.FINAL;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -45,7 +46,7 @@ public class LoginActivity extends Activity  implements OnClickListener{
 	private String security_password;
 	private String login_value;
 	private String name2;
-	private String url="http://192.168.253.1/test.do";
+	private String url=FINAL.URL+"/test.do";
 	
 	
 	
@@ -103,7 +104,20 @@ public class LoginActivity extends Activity  implements OnClickListener{
 	                new Response.Listener<String>() {
 	                    @Override
 	                    public void onResponse(String response) {
-	                        Toast.makeText(LoginActivity.this, response, Toast.LENGTH_SHORT).show(); 
+	                        String ser_response= response;
+	                        if(ser_response.equals("success")){
+	                        	
+	                        	Intent intent = new Intent();
+	                        	intent.setClass(LoginActivity.this, WebViewer.class);
+	                        //	intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//设置不要刷新将要跳到的界面
+	                        	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//它可以关掉所要到的界面中间的activity
+	                        	startActivity(intent);
+
+	                        	
+	                        }
+	                        else{
+	                        	Toast.makeText(LoginActivity.this, "手机或密码错误", Toast.LENGTH_SHORT).show();
+	                        }
 	                    }
 	                },
 	                new Response.ErrorListener() {

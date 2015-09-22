@@ -1,5 +1,7 @@
 package cn.edu.ynu.universitytownguide;
 
+import us.wenqi.us.Util.FINAL;
+import cn.smssdk.SMSSDK;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
@@ -24,8 +26,10 @@ import android.widget.Toast;
 import android.os.Build;
 
 public class WebViewer extends Activity implements OnClickListener{
+	
+	
 
-	private String url = "file:///android_asset/University/index.html";
+	private String url = FINAL.FILES_URL+"/index.html";
 	private WebView webView;
 	private TextView textView;
 	private TextView home;
@@ -40,6 +44,7 @@ public class WebViewer extends Activity implements OnClickListener{
     private MyProgressDialog dialog;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		SMSSDK.initSDK(this, "a79492a1b2b0", "3be389512d02a4b2370abb8c9fb9c5ae");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web);
 		// Uri uri = Uri.parse(url); //url为你要链接的地址
@@ -94,7 +99,13 @@ public class WebViewer extends Activity implements OnClickListener{
 				
 				if(url.equals("a://guide")){
 					onClick(guide);
-					url="file:///android_asset/University/guide.html";
+					url=FINAL.FILES_URL+"/guide.html";
+					
+				}
+				
+				if(url.equals("a://login")){
+					Intent intent = new Intent(getApplication(),LoginActivity.class);
+					startActivity(intent);
 					
 				}
 				view.loadUrl(url);
@@ -206,12 +217,12 @@ public class WebViewer extends Activity implements OnClickListener{
 		case R.id.purches:
 			
 		{
-			webView.loadUrl("file:///android_asset/University/store.html");
+			webView.loadUrl(FINAL.FILES_URL+"/store.html");
 			break;
 		}
 		
 		case R.id.photo:{
-			webView.loadUrl("file:///android_asset/University/maps.html");
+			webView.loadUrl(FINAL.FILES_URL+"/maps.html");
 			
 			
 			break;
@@ -221,10 +232,10 @@ public class WebViewer extends Activity implements OnClickListener{
 		case R.id.myself:{
 			
 			
-			
-			Intent intent = new Intent(getApplication(),
-					MineActivity.class);
-			startActivity(intent);
+			webView.loadUrl(FINAL.FILES_URL+"/user.html");
+//			Intent intent = new Intent(getApplication(),
+//					MineActivity.class);
+//			startActivity(intent);
 			
 			
 			break;
@@ -233,7 +244,7 @@ public class WebViewer extends Activity implements OnClickListener{
 		
 		case R.id.guide:{
 			
-			webView.loadUrl("file:///android_asset/University/guide.html");
+			webView.loadUrl(FINAL.FILES_URL+"/guide.html");
 			
 			
 			break;

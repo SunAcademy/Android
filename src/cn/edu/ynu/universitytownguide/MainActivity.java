@@ -22,16 +22,21 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 	private EditText phone;
 	private TextView back_btn;
 	private CheckBox agreeRules;
+	private boolean ture_number=false;
+	private boolean isChecked=false;
 	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		SMSSDK.initSDK(this, "a79492a1b2b0", "3be389512d02a4b2370abb8c9fb9c5ae");
+		
+		
+		
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.register2);
 		
 		Typeface font = Typeface.createFromAsset(getAssets(), "fontello.ttf");
 		regBtn= (Button) findViewById(R.id.regBtn);
+		
 		phone=(EditText) findViewById(R.id.phone);
 		agreeRules= (CheckBox) findViewById(R.id.agreeRule);
 		back_btn= (TextView) findViewById(R.id.back_btn);
@@ -47,6 +52,8 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 			}
 		});
 		
+		
+		
 		agreeRules.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 			
 			@Override
@@ -59,6 +66,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 				}
 				else{
 					regBtn.setTextColor(0xfff0f0f0);
+					regBtn.setClickable(false);
 					
 				}
 				
@@ -72,13 +80,22 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 				// TODO Auto-generated method stub
 		//		SMSSDK.getVerificationCode("86", phone.toString());
 				
-				Intent intent= new Intent(MainActivity.this, RegCommitActivity.class);
-				intent.putExtra("phone", phone.getText().toString());
+				if(checkOnclick()){
+					Intent intent= new Intent(MainActivity.this, RegConfirmActivity.class);
+					intent.putExtra("phone", phone.getText().toString());
+					
+					startActivity(intent);
+					
+				}
+				else {
+					Toast.makeText(MainActivity.this, "手机号码格式错误", Toast.LENGTH_SHORT).show();
+				}
 				
-				startActivity(intent);
 				
 			}
 		});
+		
+		regBtn.setClickable(false);
 		
 		
 		
@@ -102,10 +119,10 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 				// TODO Auto-generated method stub
 				if(phone.getText().length()==11){
 					if(phone.getText().toString().matches("^1[3-57-8]\\d{9}$")){
-						Toast.makeText(MainActivity.this, "号码正确", Toast.LENGTH_SHORT).show();
+						ture_number=true;
 					}
 					else{
-						Toast.makeText(MainActivity.this, "号码错误", Toast.LENGTH_SHORT).show();
+						ture_number=false;
 					}
 				}
 			}
@@ -125,6 +142,23 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 		// TODO Auto-generated method stub
 		
 		
+		
+	}
+	
+	
+	private boolean checkOnclick() {
+		// TODO Auto-generated method stub
+		
+			if(phone.getText().toString().matches("^1[3-57-8]\\d{9}$")){
+				return true;
+			}
+			else{
+				return false;
+			}
+			
+			
+		
+
 	}
 
 

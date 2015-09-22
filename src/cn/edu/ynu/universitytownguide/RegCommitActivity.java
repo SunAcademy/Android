@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import us.wenqi.us.Util.DesUtils;
+import us.wenqi.us.Util.FINAL;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -35,7 +36,7 @@ public class RegCommitActivity extends Activity implements OnClickListener {
 	private Button reg_commit_btn;
 	private EditText password;
 	private EditText password_verity;
-	private String url="http://192.168.1.103/test.do";
+	private String url=FINAL.URL+"/test.do";
 	private String reg_val;
 	private String telphone;
 	
@@ -116,7 +117,19 @@ public class RegCommitActivity extends Activity implements OnClickListener {
 	                new Response.Listener<String>() {
 	                    @Override
 	                    public void onResponse(String response) {
-	                        Toast.makeText(RegCommitActivity.this, response, Toast.LENGTH_SHORT).show(); 
+	                        if(response.equals("success")){
+	                        	
+	                        	
+	                        	
+	                        	Intent intent = new Intent();
+	                        	intent.setClass(RegCommitActivity.this, WebViewer.class);
+	                        //	intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//设置不要刷新将要跳到的界面
+	                        	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//它可以关掉所要到的界面中间的activity
+	                        	startActivity(intent);
+	                        	finish();
+
+	                        	
+	                        }
 	                    }
 	                },
 	                new Response.ErrorListener() {
