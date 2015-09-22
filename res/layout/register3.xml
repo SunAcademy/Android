@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f0f0f0"
+    android:orientation="vertical" >
+    
+    <include layout="@layout/common_title"/>
+
+    <EditText
+        android:id="@+id/userpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textPassword"
+        android:layout_margin="20dp"
+        android:hint="@string/login_userpass_" >
+
+        <requestFocus />
+    </EditText>
+
+    <EditText
+        android:id="@+id/userpasswordv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:inputType="textPassword"
+        android:layout_marginRight="20dp"
+        android:text=""
+        
+        android:hint="@string/input_password_again" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+         android:layout_marginTop="20dp"
+         
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/reg3_commit_btn"
+            android:layout_gravity="center"
+           
+            android:layout_marginLeft="20dp"
+        	android:layout_marginRight="20dp"
+            android:layout_width="match_parent"
+            
+            android:layout_height="wrap_content"
+            android:text="@string/reg_commit_btn_hint" />
+
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/reg_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/logn_btn_hint" />
+
+</LinearLayout>

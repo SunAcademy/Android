@@ -2064,7 +2064,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f0d003b;
         public static final int action_mode_bar_stub=0x7f0d003a;
         public static final int action_mode_close_button=0x7f0d0023;
-        public static final int action_settings=0x7f0d0070;
+        public static final int action_settings=0x7f0d0072;
         public static final int activity_chooser_view_content=0x7f0d0024;
         public static final int agreeRule=0x7f0d006d;
         public static final int alertTitle=0x7f0d002e;
@@ -2120,6 +2120,7 @@ containing a value of this type.
         public static final int purches=0x7f0d0057;
         public static final int radio=0x7f0d0038;
         public static final int reSend=0x7f0d006a;
+        public static final int reg3_commit_btn=0x7f0d0070;
         public static final int regBtn=0x7f0d006b;
         public static final int reg_Btn=0x7f0d0055;
         public static final int rule=0x7f0d006e;
@@ -2158,8 +2159,9 @@ containing a value of this type.
         public static final int up=0x7f0d0001;
         public static final int useLogo=0x7f0d0013;
         public static final int userpassword=0x7f0d0052;
+        public static final int userpasswordv=0x7f0d006f;
         public static final int userphone=0x7f0d0051;
-        public static final int webView=0x7f0d006f;
+        public static final int webView=0x7f0d0071;
         public static final int withText=0x7f0d001d;
         public static final int wrap_content=0x7f0d0009;
     }
@@ -2240,11 +2242,12 @@ containing a value of this type.
         public static final int notification_template_part_time=0x7f030025;
         public static final int register=0x7f030026;
         public static final int register2=0x7f030027;
-        public static final int select_dialog_item_material=0x7f030028;
-        public static final int select_dialog_multichoice_material=0x7f030029;
-        public static final int select_dialog_singlechoice_material=0x7f03002a;
-        public static final int support_simple_spinner_dropdown_item=0x7f03002b;
-        public static final int web=0x7f03002c;
+        public static final int register3=0x7f030028;
+        public static final int select_dialog_item_material=0x7f030029;
+        public static final int select_dialog_multichoice_material=0x7f03002a;
+        public static final int select_dialog_singlechoice_material=0x7f03002b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03002c;
+        public static final int web=0x7f03002d;
     }
     public static final class menu {
         public static final int main=0x7f0e0000;
@@ -2320,10 +2323,12 @@ containing a value of this type.
         public static final int forget_=0x7f080098;
         public static final int haveSend=0x7f080090;
         public static final int hello_world=0x7f080087;
+        public static final int input_password_again=0x7f08009d;
         public static final int login_login_btn=0x7f08009a;
         public static final int login_phone_hint=0x7f080096;
         public static final int login_userpass_=0x7f080097;
         public static final int loginorreg=0x7f080095;
+        public static final int logn_btn_hint=0x7f08009b;
         public static final int mine=0x7f080093;
         public static final int phoneRegister=0x7f08008a;
         public static final int pleaseInputCode=0x7f080092;
@@ -2331,6 +2336,7 @@ containing a value of this type.
         public static final int regHint=0x7f08008b;
         public static final int regNext=0x7f08008d;
         public static final int reg_btn_hint=0x7f080099;
+        public static final int reg_commit_btn_hint=0x7f08009c;
         public static final int retBtn=0x7f080089;
         public static final int smssdk_add_contact=0x7f08006d;
         public static final int smssdk_back=0x7f080047;

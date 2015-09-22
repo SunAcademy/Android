@@ -72,7 +72,7 @@ public class MainActivity extends Activity implements OnCheckedChangeListener {
 				// TODO Auto-generated method stub
 		//		SMSSDK.getVerificationCode("86", phone.toString());
 				
-				Intent intent= new Intent(MainActivity.this, RegConfirmActivity.class);
+				Intent intent= new Intent(MainActivity.this, RegCommitActivity.class);
 				intent.putExtra("phone", phone.getText().toString());
 				
 				startActivity(intent);
