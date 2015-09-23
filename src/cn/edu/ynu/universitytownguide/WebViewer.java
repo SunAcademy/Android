@@ -147,6 +147,10 @@ public class WebViewer extends Activity implements OnClickListener{
 					
 				}
 				
+				if(url.contains("store.html")){
+					onClick(purches);
+				}
+				
 				if(url.equals("a://login")){
 					Intent intent = new Intent(getApplication(),LoginActivity.class);
 					startActivity(intent);
