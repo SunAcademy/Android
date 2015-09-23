@@ -1,5 +1,9 @@
 package cn.edu.ynu.universitytownguide;
 
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.location.LocationClientOption.LocationMode;
+
 import us.wenqi.us.Util.FINAL;
 import cn.smssdk.SMSSDK;
 import android.app.Activity;
@@ -28,8 +32,8 @@ import android.os.Build;
 public class WebViewer extends Activity implements OnClickListener{
 	
 	
-
-	private String url = FINAL.FILES_URL+"/index.html";
+	private FINAL finalt=FINAL.getInstance();
+	private String url = FINAL.FILES_URL+"/index.jsp";
 	private WebView webView;
 	private TextView textView;
 	private TextView home;
@@ -39,6 +43,13 @@ public class WebViewer extends Activity implements OnClickListener{
 	private TextView myself;
 	private TextView preview;
 	private TextView loading;
+    private String tempcoor="gcj02";
+    //                        tempcoor="gcj02";//国家测绘局标准
+    //tempcoor="bd09ll";//百度经纬度标准
+//tempcoor="bd09";//百度墨卡托标准
+	private LocationClient locationClient;
+	private LocationMode locationMode=LocationMode.Hight_Accuracy;
+	
 	
 	
     private MyProgressDialog dialog;
@@ -47,6 +58,8 @@ public class WebViewer extends Activity implements OnClickListener{
 		SMSSDK.initSDK(this, "a79492a1b2b0", "3be389512d02a4b2370abb8c9fb9c5ae");
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.web);
+		
+		locationClient=((LocationApplication)getApplication()).mLocationClient;
 		// Uri uri = Uri.parse(url); //url为你要链接的地址
 		// Intent intent =new Intent(Intent.ACTION_VIEW, uri);
 		// startActivity(intent);
@@ -80,7 +93,38 @@ public class WebViewer extends Activity implements OnClickListener{
 		myself.setOnClickListener(this);
 		photo.setOnClickListener(this);
 		init();
+		
+		initLocation();
+		locationClient.start();
 	}
+	
+    @Override
+    protected void onStop() {
+        // TODO Auto-generated method stub
+        locationClient.stop();
+        super.onStop();
+    }
+
+    private void initLocation(){
+        LocationClientOption option = new LocationClientOption();
+        option.setLocationMode(locationMode);//可选，默认高精度，设置定位模式，高精度，低功耗，仅设备
+        option.setCoorType(tempcoor);//可选，默认gcj02，设置返回的定位结果坐标系，
+        int span=50000;   
+
+        option.setScanSpan(span);//可选，默认0，即仅定位一次，设置发起定位请求的间隔需要大于等于1000ms才是有效的
+        option.setIsNeedAddress(true);//可选，设置是否需要地址信息，默认不需要
+        option.setOpenGps(true);//可选，默认false,设置是否使用gps
+        option.setLocationNotify(true);//可选，默认false，设置是否当gps有效时按照1S1次频率输出GPS结果
+        option.setIgnoreKillProcess(true);//可选，默认true，定位SDK内部是一个SERVICE，并放到了独立进程，设置是否在stop的时候杀死这个进程，默认不杀死
+        option.setEnableSimulateGps(false);//可选，默认false，设置是否需要过滤gps仿真结果，默认需要
+        option.setIsNeedLocationDescribe(true);//可选，默认false，设置是否需要位置语义化结果，可以在BDLocation.getLocationDescribe里得到，结果类似于“在北京天安门附近”
+        option.setIsNeedLocationPoiList(true);//可选，默认false，设置是否需要POI结果，可以在BDLocation.getPoiList里得到
+        locationClient.setLocOption(option);
+        
+        
+    }
+    
+    
 
 	private void init() {
 		// TODO Auto-generated method stub
@@ -118,7 +162,7 @@ public class WebViewer extends Activity implements OnClickListener{
 		WebSettings settings = webView.getSettings();
 		settings.setJavaScriptEnabled(true);
 		//WebView加载页面优先使用缓存加载
-		settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+	//	settings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 		webView.setWebChromeClient(new WebChromeClient(){
 			
 			@Override
@@ -222,8 +266,18 @@ public class WebViewer extends Activity implements OnClickListener{
 		}
 		
 		case R.id.photo:{
-			webView.loadUrl(FINAL.FILES_URL+"/maps.html");
 			
+			
+			if(finalt.getLocationscribe()==null||finalt.getLocationscribe().equals("")){
+				Toast.makeText(WebViewer.this, "正在获取位置信息请稍后", Toast.LENGTH_SHORT).show();
+			}
+			else{
+				webView.loadUrl(FINAL.FILES_URL+"/locatation.html?longitude="+finalt.getLatitude()+"&latitude="+finalt.getLontitude()+"");
+			}
+			
+
+
+				
 			
 			break;
 			
@@ -232,7 +286,15 @@ public class WebViewer extends Activity implements OnClickListener{
 		case R.id.myself:{
 			
 			
-			webView.loadUrl(FINAL.FILES_URL+"/user.html");
+			
+			if(FINAL.getInstance().getToken()!=null){
+				webView.loadUrl(FINAL.FILES_URL+"/user.jsp?Token="+FINAL.getInstance().getToken());
+				
+			}
+			else{
+				
+				webView.loadUrl(FINAL.FILES_URL+"/user.jsp");
+			}
 //			Intent intent = new Intent(getApplication(),
 //					MineActivity.class);
 //			startActivity(intent);
@@ -255,6 +317,7 @@ public class WebViewer extends Activity implements OnClickListener{
 		}
 		
 	}
+	
 	
 	
 }

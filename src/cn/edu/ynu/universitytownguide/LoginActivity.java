@@ -105,11 +105,15 @@ public class LoginActivity extends Activity  implements OnClickListener{
 	                    @Override
 	                    public void onResponse(String response) {
 	                        String ser_response= response;
-	                        if(ser_response.equals("success")){
+	                        String[] reture=ser_response.split("&a&");
+	                        if(reture[0].equals("success")){
 	                        	
+	                        	FINAL.getInstance().setToken(reture[1]);
+	                        	System.out.println("+token+"+reture[1]);
+	                        	Toast.makeText(LoginActivity.this, reture[1], Toast.LENGTH_SHORT).show();
 	                        	Intent intent = new Intent();
 	                        	intent.setClass(LoginActivity.this, WebViewer.class);
-	                        //	intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//设置不要刷新将要跳到的界面
+	                        	intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);//设置不要刷新将要跳到的界面
 	                        	intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);//它可以关掉所要到的界面中间的activity
 	                        	startActivity(intent);
 
